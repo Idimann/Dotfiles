@@ -1,0 +1,151 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetbrainsMonoNerdFont.ttf"; /* JetBrainsMonoNerdFontMono-Bold.ttf */
+    font-weight: bold;
+    font-size: 13px;
+    min-height: 0;
+    background: #121217;
+}
+
+window#waybar {
+    background: #121217;
+    color: #cdd6f4;
+}
+
+tooltip {
+    background: #121217;
+    
+    border-width: 0px;
+    border-style: solid;
+    border-color: #11111b;
+}
+
+#workspaces button {
+    padding: 5px;
+    color: #313244;
+    margin-right: 5px;
+}
+
+#workspaces button.active {
+    color: #a6adc8;
+}
+
+#workspaces button.focused {
+    color: #a6adc8;
+    background: #eba0ac;
+    
+}
+
+#workspaces button.urgent {
+    color: #11111b;
+    background: #a6e3a1;
+    
+}
+
+#workspaces button:hover {
+    background: #11111b;
+    color: #cdd6f4;
+    
+}
+
+#custom-weather,
+#mpd,
+#window,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#bluetooth,
+#temperature,
+#workspaces,
+#cpu,
+#memory,
+#backlight {
+    background: #121217;
+    opacity: 1;
+    padding: 0px 10px;
+    margin: 3px 0px;
+    margin-top: 0px;
+    border: 0px solid #181825;
+}
+
+#temperature.critical {
+    color: #eba0ac;
+}
+
+#workspaces {
+    background: #121217;
+    
+    margin-left: 0px;
+    padding-right: 0px;
+    padding-left: 5px;
+}
+
+#window {
+    
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+#clock {
+    color: #fab387;
+    
+    margin-left: 0px;
+    border-right: 0px;
+    margin-right: 0px;
+}
+
+#network {
+    color: #f9e2af;
+    
+    border-left: 0px;
+    border-right: 0px;
+    padding-left: 0px;
+}
+
+#bluetooth {
+    color: #89b4fa;
+    
+    margin-right: 0px
+} 
+
+#pulseaudio {
+    color: #89b4fa;
+    
+    border-left: 0px;
+    border-right: 0px;
+}
+
+#pulseaudio.microphone {
+    color: #cba6f7;
+    border-left: 0px;
+    border-right: 0px;
+    
+    margin-right: 0px;
+}
+
+#battery {
+    color: #a6e3a1;
+    margin-right: 0px;
+    border-left: 0px;
+}
+
+#cpu {
+    color: #afedf9;
+    
+    border-left: 0px;
+    border-right: 0px;
+}
+
+#memory {
+    color: #f5aff9;
+    
+    margin-right: 0px
+} 
+
+#custom-weather {
+    
+    border-right: 0px;
+    margin-left: 0px;
+}
