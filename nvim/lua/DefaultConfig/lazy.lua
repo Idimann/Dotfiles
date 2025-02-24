@@ -136,7 +136,8 @@ return require('lazy').setup({
     'lervag/vimtex',
 
     'rose-pine/neovim',
-    'folke/tokyonight.nvim',
+    'catppuccin/nvim',
+    -- 'folke/tokyonight.nvim',
     -- 'ellisonleao/gruvbox.nvim',
     -- 'blazkowolf/gruber-darker.nvim',
     -- 'vague2k/vague.nvim',

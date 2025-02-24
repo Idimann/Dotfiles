@@ -69,7 +69,7 @@ vim.api.nvim_set_keymap('t', "<Esc>", "<C-\\><C-n>", {noremap = true, silent = t
 
 --Colors
 vim.keymap.set('n', "<leader>c1", "<cmd>ColorRose<CR>");
-vim.keymap.set('n', "<leader>c2", "<cmd>ColorTokyo<CR>");
+vim.keymap.set('n', "<leader>c2", "<cmd>ColorCat<CR>");
 -- vim.keymap.set('n', "<leader>c2", "<cmd>ColorGruv<CR>");
 -- vim.keymap.set('n', "<leader>c3", "<cmd>ColorGruber<CR>");
 -- vim.keymap.set('n', "<leader>c4", "<cmd>ColorVague<CR>");
