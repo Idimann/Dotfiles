@@ -148,7 +148,10 @@ return require('lazy').setup({
 
     'norcalli/nvim-colorizer.lua',
 
-    'thePrimeagen/harpoon',
+    {
+        'thePrimeagen/harpoon',
+        branch = 'harpoon2',
+    },
 
     'mbbill/undotree',
 
