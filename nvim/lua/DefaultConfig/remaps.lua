@@ -3,25 +3,24 @@ vim.g.mapleader = " "
 local custom = require("DefaultConfig.custom")
 
 --General
--- vim.keymap.set("n", "<C-c>", "<Esc>")
--- vim.keymap.set("v", "<C-c>", "<Esc>")
--- vim.keymap.set("i", "<C-c>", "<Esc>")
+vim.keymap.set("n", "<C-c>", "<Esc>")
+vim.keymap.set("v", "<C-c>", "<Esc>")
+vim.keymap.set("i", "<C-c>", "<Esc>")
 
 --Mappings
 vim.keymap.set("n", "<leader>n", "<cmd>Oil<cr>")
 
 --Line moving
-vim.keymap.set("v", "J", ":m '>+1<cr>gv=gv")
+vim.keymap.set("v", "J", ":m '>+1<cr>gv=k==jgv")
 vim.keymap.set("v", "K", ":m '<-2<cr>gv=gv")
-
 --Indentation
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
 --Linewrap
-vim.keymap.set("n", "<leader>w", custom.ToggleWrap)
+vim.keymap.set("n", "<leader>w", function() custom.ToggleWrap() custom.ApplyWrap() end)
 
---Linewrap
+--Cmp
 vim.keymap.set("i", "<C-h>", custom.ToggleCmp)
 
 --Quickfix list

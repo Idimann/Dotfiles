@@ -34,8 +34,8 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.wrap = true
-vim.opt.colorcolumn = "" --Prime uses 80 i use 75
+local custom = require("DefaultConfig.custom")
+custom.ApplyWrap()
 
 local cmdGroup = vim.api.nvim_create_augroup("lol", { clear = true })
 

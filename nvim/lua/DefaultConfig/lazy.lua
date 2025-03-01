@@ -22,7 +22,6 @@ return require('lazy').setup({
     {
         'nvim-treesitter/nvim-treesitter',
         lazy = false,
-        build = ':TSUpdateSync',
     },
 
     --'nvim-treesitter/nvim-treesitter-context',
@@ -38,7 +37,6 @@ return require('lazy').setup({
 
         build = 'cargo build --release',
         dependencies = 'rafamadriz/friendly-snippets',
-        version = 'v0.*',
 
         opts = {
             keymap = {
@@ -57,7 +55,7 @@ return require('lazy').setup({
                     -- auto_show_delay_ms = 0,
 
                     window = {
-                        border = 'rounded',--'none',
+                        border = 'rounded', --'none',
                     }
                 },
 
@@ -67,7 +65,6 @@ return require('lazy').setup({
                     min_width = 15,
                     max_height = 6,
                     scrolloff = 3,
-                    direction_priority = { 'n', 's' },
 
                     auto_show = function(ctx)
                         return ctx.mode ~= "cmdline" or not vim.tbl_contains({ '/', '?' },

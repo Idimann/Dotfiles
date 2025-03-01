@@ -59,8 +59,11 @@ return {
     ToggleWrap = function()
         wrapState = not wrapState
         vim.opt.wrap = wrapState
+    end,
+
+    ApplyWrap = function()
         if not wrapState then
-            vim.opt.colorcolumn = "75"
+            vim.opt.colorcolumn = "80"
         else
             vim.opt.colorcolumn = ""
         end
