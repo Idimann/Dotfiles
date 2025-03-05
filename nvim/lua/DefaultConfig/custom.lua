@@ -35,7 +35,7 @@ end
 
 local wrapState = true
 
-CmpState = false
+CmpState = true
 
 return {
     ToggleScratch = function()

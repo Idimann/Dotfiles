@@ -2,6 +2,7 @@
     require('DefaultConfig.plugins.hex-colors')
     require('DefaultConfig.plugins.rose-pine')
     require('DefaultConfig.plugins.catppuccin')
+    require('DefaultConfig.plugins.material')
     -- require('DefaultConfig.plugins.tokyonight')
     -- require('DefaultConfig.plugins.gruvbox')
     -- require('DefaultConfig.plugins.gruber-darker')

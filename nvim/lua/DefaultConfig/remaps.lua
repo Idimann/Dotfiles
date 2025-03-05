@@ -51,6 +51,7 @@ vim.keymap.set("n", "<leader>t", "<cmd>TSPlaygroundToggle<cr>")
 vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
+vim.keymap.set("v", "<leader>Y", "\"+Y")
 
 vim.keymap.set("n", "<leader>v", "!!wl-paste<cr>") --After years i finally got this working
 --vim.keymap.set("n", "<leader>V", "\"+P")
@@ -69,6 +70,7 @@ vim.api.nvim_set_keymap('t', "<Esc>", "<C-\\><C-n>", {noremap = true, silent = t
 --Colors
 vim.keymap.set('n', "<leader>c1", "<cmd>ColorRose<CR>");
 vim.keymap.set('n', "<leader>c2", "<cmd>ColorCat<CR>");
+vim.keymap.set('n', "<leader>c3", "<cmd>ColorMaterial<CR>");
 -- vim.keymap.set('n', "<leader>c2", "<cmd>ColorGruv<CR>");
 -- vim.keymap.set('n', "<leader>c3", "<cmd>ColorGruber<CR>");
 -- vim.keymap.set('n', "<leader>c4", "<cmd>ColorVague<CR>");

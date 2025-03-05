@@ -19,9 +19,9 @@ require'nvim-treesitter.configs'.setup {
         -- additional_vim_regex_highlighting = "latex"
     },
 
-    -- indent = {
-    --     enable = true,
-    -- },
+    indent = {
+        enable = { "elixir" }, --Elixir is so much better with this
+    },
 
     -- styles = {
     --     comments = "ITALIC",

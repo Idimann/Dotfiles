@@ -60,10 +60,10 @@ vim.api.nvim_create_autocmd({'TextYankPost'}, {
     end,
 })
 
-vim.api.nvim_create_autocmd({'InsertLeave'}, {
-    group = cmdGroup,
-    pattern = '*',
-    callback = function()
-        CmpState = false
-    end,
-})
+-- vim.api.nvim_create_autocmd({'InsertLeave'}, {
+--     group = cmdGroup,
+--     pattern = '*',
+--     callback = function()
+--         CmpState = false
+--     end,
+-- })

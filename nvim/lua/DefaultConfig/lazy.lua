@@ -134,6 +134,7 @@ return require('lazy').setup({
 
     'rose-pine/neovim',
     'catppuccin/nvim',
+    'marko-cerovac/material.nvim',
     -- 'folke/tokyonight.nvim',
     -- 'ellisonleao/gruvbox.nvim',
     -- 'blazkowolf/gruber-darker.nvim',
@@ -154,7 +155,7 @@ return require('lazy').setup({
 
     'tpope/vim-repeat',
 
-    'kdheepak/lazygit.nvim',
+    -- 'kdheepak/lazygit.nvim',
 
     'kyazdani42/nvim-web-devicons',
 

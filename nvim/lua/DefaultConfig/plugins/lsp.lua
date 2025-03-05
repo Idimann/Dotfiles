@@ -10,6 +10,10 @@ lspconfig.ts_ls.setup({ capabilities = cap })
 lspconfig.zls.setup({ capabilities = cap})
 vim.g.zig_fmt_autosave = false
 lspconfig.hls.setup({ capabilities = cap })
+lspconfig.elixirls.setup({
+    capabilities = cap,
+    cmd = { "/usr/lib/elixir-ls/language_server.sh" },
+})
 -- lspconfig.htmx.setup({ capabilities = cap })
 
 vim.keymap.set("n", "<leader>k", function() vim.lsp.buf.hover({border = 'rounded'}) end);
