@@ -26,11 +26,11 @@ return require('lazy').setup({
 
     --'nvim-treesitter/nvim-treesitter-context',
 
-    {
-        'stevearc/oil.nvim',
-
-        dependencies = { { "echasnovski/mini.icons", opts = {} } }
-    },
+    -- {
+    --     'stevearc/oil.nvim',
+    --
+    --     dependencies = { { "echasnovski/mini.icons", opts = {} } }
+    -- },
 
     {
         'saghen/blink.cmp',
@@ -42,7 +42,7 @@ return require('lazy').setup({
             keymap = {
                 preset = 'default',
 
-                ['<C-k>'] = { 'hide_signature', 'show_signature',  'fallback' },
+                -- ['<C-k>'] = { 'show_signature', 'hide_signature',  'fallback' },
             },
 
             completion = {
@@ -66,11 +66,7 @@ return require('lazy').setup({
                     max_height = 6,
                     scrolloff = 3,
 
-                    auto_show = function(ctx)
-                        return ctx.mode ~= "cmdline" or not vim.tbl_contains({ '/', '?' },
-                        vim.fn.getcmdtype())
-                    end,
-
+                    auto_show = true,
                     draw = {
                         columns = {
                             { "kind_icon", gap = 1 },
@@ -114,11 +110,22 @@ return require('lazy').setup({
                 nerd_font_variant = 'mono'
             },
 
+            cmdline = {
+                completion = {
+                    menu = {
+                        auto_show = function()
+                            return not vim.tbl_contains({ '/', '?' },
+                                vim.fn.getcmdtype())
+                        end,
+                    }
+                },
+            },
+
             signature = {
                 enabled = true,
 
                 trigger = {
-                    enabled = false
+                    enabled = false,
                 },
 
                 window = {
@@ -156,6 +163,7 @@ return require('lazy').setup({
     'tpope/vim-repeat',
 
     -- 'kdheepak/lazygit.nvim',
+    'tpope/vim-fugitive',
 
     'kyazdani42/nvim-web-devicons',
 

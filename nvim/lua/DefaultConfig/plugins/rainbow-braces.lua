@@ -9,6 +9,7 @@ require('rainbow-delimiters.setup').setup {
     query = {
         [''] = 'rainbow-delimiters',
         latex = 'rainbow-blocks',
+        -- elixir = 'rainbow-blocks', --This doesn't work
     },
 
     priority = {

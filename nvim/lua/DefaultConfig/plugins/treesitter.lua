@@ -22,14 +22,6 @@ require'nvim-treesitter.configs'.setup {
     indent = {
         enable = { "elixir" }, --Elixir is so much better with this
     },
-
-    -- styles = {
-    --     comments = "ITALIC",
-    --     functions = "NONE",
-    --     keywords = "BOLD",
-    --     strings = "NONE",
-    --     variables = "NONE",
-    -- },
 }
 
 --[[require'treesitter-context'.setup {

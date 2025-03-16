@@ -5,6 +5,9 @@ require("catppuccin").setup({
     integrations = {
         cmp = false,
     },
+    no_italic = true,
+    no_bold = false,
+    no_underline = false,
 })
 
 vim.api.nvim_create_user_command('ColorCat',

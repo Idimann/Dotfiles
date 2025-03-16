@@ -19,6 +19,7 @@ lspconfig.elixirls.setup({
 vim.keymap.set("n", "<leader>k", function() vim.lsp.buf.hover({border = 'rounded'}) end);
 vim.keymap.set("n", "<leader>j", function()
     vim.diagnostic.open_float({border = 'rounded'}) end);
+vim.keymap.set("n", "<leader>l", vim.lsp.buf.format);
 vim.keymap.set("n", "<leader>d", vim.diagnostic.setqflist);
 vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition);
 vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration);

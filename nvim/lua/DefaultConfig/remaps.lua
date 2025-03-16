@@ -18,7 +18,13 @@ vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
 --Linewrap
-vim.keymap.set("n", "<leader>w", function() custom.ToggleWrap() custom.ApplyWrap() end)
+vim.keymap.set("n", "<leader>w", function()
+    custom.ToggleWrap()
+    custom.ApplyWrap()
+end)
+
+-- Completion
+-- vim.keymap.del("i", "<C-x>")
 
 --Cmp
 vim.keymap.set("i", "<C-h>", custom.ToggleCmp)
@@ -37,9 +43,6 @@ vim.keymap.set("n", "n", "nzz")
 vim.keymap.set("n", "N", "Nzz")
 vim.keymap.set("n", "J", "mzJ`z")
 
---Git
-vim.keymap.set("n", "<leader>l", ":LazyGit<cr>")
-
 --Neorg
 --vim.keymap.set("n", "<leader>og", ":Neorg index<cr>")
 --vim.keymap.set("n", "<leader>ob", ":w<cr>:Neorg return<cr>")
@@ -53,19 +56,20 @@ vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 vim.keymap.set("v", "<leader>Y", "\"+Y")
 
-vim.keymap.set("n", "<leader>v", "!!wl-paste<cr>") --After years i finally got this working
+vim.keymap.set("n", "<leader>v", "<cmd>r!wl-paste<cr>") --After years i finally got this
+vim.keymap.set("v", "<leader>v", "!wl-paste<cr>")
 --vim.keymap.set("n", "<leader>V", "\"+P")
 vim.keymap.set("n", "<leader>p", "\"_dP")
 
 -- vim.keymap.set("n", "<leader>tst", function() print(vim.fn.expand('%:t')) end)
 
-vim.keymap.set('n', "<leader>m", "<cmd>!make<CR><cmd>echo \"Rebuilt the project\"<CR>", {noremap = true, silent = true})
+vim.keymap.set('n', "<leader>m", "<cmd>!make<CR><cmd>echo \"Rebuilt the project\"<CR>", { noremap = true, silent = true })
 
 --vim.api.nvim_set_keymap('n', "<leader>t", "<cmd>split term://zsh<CR>:resize 10<CR>i", {noremap = true, silent = true})
 
-vim.keymap.set('n', "<leader>s", custom.ToggleScratch, {noremap = true})
+vim.keymap.set('n', "<leader>s", custom.ToggleScratch, { noremap = true })
 
-vim.api.nvim_set_keymap('t', "<Esc>", "<C-\\><C-n>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap('t', "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true })
 
 --Colors
 vim.keymap.set('n', "<leader>c1", "<cmd>ColorRose<CR>");
