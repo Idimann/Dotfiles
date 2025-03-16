@@ -10,6 +10,8 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
+vim.g.netrw_banner = false
+
 vim.opt.smartindent = true
 
 vim.opt.ignorecase = true

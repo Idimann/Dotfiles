@@ -8,7 +8,7 @@ vim.keymap.set("v", "<C-c>", "<Esc>")
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
 --Mappings
-vim.keymap.set("n", "<leader>n", "<cmd>Oil<cr>")
+vim.keymap.set("n", "<leader>n", "<cmd>Ex<cr>")
 
 --Line moving
 vim.keymap.set("v", "J", ":m '>+1<cr>gv=k==jgv")

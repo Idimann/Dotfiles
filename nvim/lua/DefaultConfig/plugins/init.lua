@@ -20,6 +20,9 @@
     require('DefaultConfig.plugins.lsp')
     --require('DefaultConfig.plugins.cmp')
 
+--Git
+    require('DefaultConfig.plugins.fugitive')
+
 --Organisation
     require('DefaultConfig.plugins.undotree')
     --reguire('DefaultConfig.plugins.neorg')
