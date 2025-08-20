@@ -1,22 +1,20 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 vim.opt.rtp:prepend(lazypath)
 
 return require('lazy').setup({
     {
         'nvim-telescope/telescope.nvim',
-        --tag = '0.1.1',
-        -- or                            , branch = '0.1.x',
-        dependencies = { {'nvim-lua/plenary.nvim'} }
+        dependencies = { { 'nvim-lua/plenary.nvim' } }
     },
 
     {
@@ -24,7 +22,7 @@ return require('lazy').setup({
         lazy = false,
     },
 
-    --'nvim-treesitter/nvim-treesitter-context',
+    'nvim-treesitter/nvim-treesitter-context',
 
     -- {
     --     'stevearc/oil.nvim',
@@ -41,8 +39,8 @@ return require('lazy').setup({
         opts = {
             keymap = {
                 preset = 'default',
-
-                -- ['<C-k>'] = { 'show_signature', 'hide_signature',  'fallback' },
+                --<C-Space> is preset to show_documentation (works)
+                --<C-k> is preset to show_signature (doesn't work)
             },
 
             completion = {
@@ -51,16 +49,16 @@ return require('lazy').setup({
                 },
 
                 documentation = {
-                    -- auto_show = true,
-                    -- auto_show_delay_ms = 0,
+                    auto_show = false,
+                    auto_show_delay_ms = 1000,
 
                     window = {
-                        border = 'rounded', --'none',
+                        border = 'single', --'none',
                     }
                 },
 
                 menu = {
-                    border = 'none', --'rounded',
+                    border = 'none', --'single',
                     scrollbar = false,
                     min_width = 15,
                     max_height = 6,
@@ -129,7 +127,7 @@ return require('lazy').setup({
                 },
 
                 window = {
-                    border = 'rounded', --'none'
+                    border = 'single', --'none'
                 }
             }
         },
@@ -149,7 +147,10 @@ return require('lazy').setup({
 
     'nvim-treesitter/playground',
 
-    'HiPhish/rainbow-delimiters.nvim',
+    {
+        'HiPhish/rainbow-delimiters.nvim',
+        lazy = false,
+    },
 
     'norcalli/nvim-colorizer.lua',
 

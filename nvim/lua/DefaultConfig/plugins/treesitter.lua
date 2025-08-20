@@ -15,16 +15,16 @@ require'nvim-treesitter.configs'.setup {
 
     highlight = {
         enable = true,
-        disable = { "latex" }, --Very important
-        -- additional_vim_regex_highlighting = "latex"
+        -- disable = { "latex" }, --Very important
+        additional_vim_regex_highlighting = "latex"
     },
 
     indent = {
-        enable = { "elixir" }, --Elixir is so much better with this
+        enable = { "elixir" },
     },
 }
 
---[[require'treesitter-context'.setup {
+require'treesitter-context'.setup {
     enable = true,
     max_lines = 1,
     min_window_height = 0,
@@ -38,5 +38,3 @@ require'nvim-treesitter.configs'.setup {
     zindex = 20, -- The Z-index of the context window
     on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
 }
-
-vim.api.nvim_set_hl(0, 'TreesitterContext', { fg = "#ffffff", bg = "#333333" })]]

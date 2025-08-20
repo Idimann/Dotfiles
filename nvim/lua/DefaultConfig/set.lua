@@ -1,3 +1,5 @@
+local custom = require("DefaultConfig.custom")
+
 vim.opt.guicursor = "n-v-ve-r-cr-i-ci-o-c-sm:block-blinkwait100-blinkoff400-blinkon250"
 
 vim.opt.mouse = ""
@@ -5,17 +7,20 @@ vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
+custom.SetIndent(4)
+vim.api.nvim_create_user_command('Indent',
+    function(arg)
+        custom.SetIndent(tonumber(arg.fargs[1]))
+    end,
+    {nargs = 1, desc = 'Changes the indentation level'})
 
 vim.g.netrw_banner = false
 
 vim.opt.smartindent = true
 
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
+-- vim.opt.ignorecase = true
+-- vim.opt.smartcase = true
 
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = 'number'
@@ -36,7 +41,10 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-local custom = require("DefaultConfig.custom")
+-- This just doesn't work for some reason
+-- vim.g.showmode = false
+-- vim.g.cmdheight = 0
+
 custom.ApplyWrap()
 
 local cmdGroup = vim.api.nvim_create_augroup("lol", { clear = true })

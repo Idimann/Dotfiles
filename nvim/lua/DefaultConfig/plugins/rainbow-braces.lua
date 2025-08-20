@@ -3,7 +3,7 @@ local rainbow_delimiters = require('rainbow-delimiters')
 require('rainbow-delimiters.setup').setup {
     strategy = {
         [''] = rainbow_delimiters.strategy['global'],
-        latex = rainbow_delimiters.strategy['noop'],
+        -- latex = rainbow_delimiters.strategy['noop'],
     },
 
     query = {

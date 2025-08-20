@@ -72,5 +72,11 @@ return {
     ToggleCmp = function()
         CmpState = not CmpState
         -- vim.api.nvim_input('<C-c>a')
-    end
+    end,
+
+    SetIndent = function(to)
+        vim.opt.tabstop = to
+        vim.opt.softtabstop = to
+        vim.opt.shiftwidth = to
+    end,
 }

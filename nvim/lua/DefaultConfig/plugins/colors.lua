@@ -13,6 +13,5 @@ return {
         if cursor then
             vim.opt.guicursor = "n-v-ve-r-cr-i-ci-o-c-sm:block-blinkwait100-blinkoff400-blinkon250"
         end
-        --vim.api.nvim_set_hl(0, 'TreesitterContext', { fg = "#ffffff", bg = "#333333" })
     end
 };
