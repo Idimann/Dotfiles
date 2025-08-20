@@ -1,5 +1,6 @@
 #+TITLE: My emacs config
 #+AUTHOR: Idimann
+#+STARTUP: content
 
 This is my emacs config. No guarantees for anything.
 
@@ -27,9 +28,7 @@ This is gavins theme.
 #+begin_src emacs-lisp
   (use-package spaceway-theme
     :ensure nil
-    :load-path "spaceway/"
-    :config'
-    (global-hl-line-mode t))
+    :load-path "spaceway/")
 #+end_src
 
 These are some black and white themes
@@ -57,17 +56,51 @@ These are some black and white themes
      '(read-only t cursor-intangible face minibuffer-prompt)))
 #+end_src
 
+** Which-Key
+#+begin_src emacs-lisp
+  (use-package which-key
+    :init (which-key-mode 1)
+    :config
+    (setq which-key-side-window-location 'bottom
+  	which-key-sort-order #'which-key-key-order-alpha
+  	which-key-sort-uppercase-first nil
+  	which-key-add-column-padding 1
+  	which-key-max-display-columns nil
+  	which-key-min-display-lines 6
+  	which-key-side-window-slot -10
+  	which-key-side-window-max-height 0.25
+  	which-key-idle-delay 0.8
+  	which-key-max-description-length 25
+  	which-key-allow-imprecise-window-fit nil))
+#+end_src
+
+** Consult
+#+begin_src emacs-lisp
+  (use-package consult)
+#+end_src
+
+** Doom-Modeline
+#+begin_src emacs-lisp
+  (use-package doom-modeline)
+  (setq doom-modeline-height 40)
+  (setq doom-modeline-buffer-modification-icon nil)
+  (doom-modeline-mode)
+#+end_src
+
 * Other
 ** Basic
+*** Disabling Splash Screen
+#+begin_src emacs-lisp
+  (setq inhibit-startup-screen t)
+#+end_src
 
 *** Tilde files
 #+begin_src emacs-lisp
   (setq make-backup-files nil)
 #+end_src
 
-*** This disable the annoying bars.
+*** Disabling the annoying bars.
 #+begin_src emacs-lisp
-  (setq display-line-numbers 'relative)
   (menu-bar-mode 0)
   (tool-bar-mode 0)
   (scroll-bar-mode 0)
@@ -77,8 +110,8 @@ These are some black and white themes
 #+begin_src emacs-lisp
   (column-number-mode 1)
   (show-paren-mode 1)
-  (global-display-line-numbers-mode 1)
   (setq display-line-numbers 'relative)
+  (global-display-line-numbers-mode 1)
 #+end_src
 
 *** Scrolling.
@@ -93,14 +126,21 @@ These are some black and white themes
   (defun reload-config ()
     (interactive)
     (load-file "~/.config/emacs/init.el"))
-  (global-set-key (kbd "C-c l") 'reload-config) 
+  (global-set-key (kbd "C-c l") 'reload-config)
 #+end_src
 
 *** Simple line manipulation
 #+begin_src emacs-lisp
   (global-set-key (kbd "C-,") 'duplicate-line)
 #+end_src
-
+*** Disabling some mouse stuff
+#+begin_src emacs-lisp
+  (mouse-wheel-mode -1)
+#+end_src
+*** Compilation
+#+begin_src emacs-lisp
+  (global-set-key (kbd "C-c c") 'compile)
+#+end_src
 ** Mini-Buffer
 #+begin_src emacs-lisp
   (add-hook 'minibuffer-setup-hook 'my-minibuffer-setup)
@@ -108,8 +148,30 @@ These are some black and white themes
     (set (make-local-variable 'face-remapping-alist)
          '((default :height 2.0))))
 #+end_src
+** Echo Area
+#+begin_src emacs-lisp
+  (defun my-isearch-message (&optional c-q-hack ellipsis)
+    ;; Generate and print the message string.
+    (let ((cursor-in-echo-area ellipsis)
+          (m isearch-message)
+          (fail-pos (isearch-fail-pos t)))
+      ;; Highlight failed part
+      (when fail-pos
+        (setq m (copy-sequence m))
+        (add-text-properties fail-pos (length m) '(face isearch-fail) m)
+        ;; Highlight failed trailing whitespace
+        (when (string-match " +$" m)
+          (add-text-properties (match-beginning 0) (match-end 0)
+                               '(face trailing-whitespace) m)))
+      (setq m (concat
+               (isearch-message-prefix ellipsis isearch-nonincremental)
+               m
+               (isearch-message-suffix c-q-hack)))
+      (if c-q-hack m (let ((message-log-max nil)) (message "%s" (propertize m 'face  '(:inherit default :height 2.0)))))))
 
-** Tree Sitter
+  (setq isearch-message-function #'my-isearch-message)
+#+end_src
+** Tree-Sitter
 #+begin_src emacs-lisp
   (use-package tree-sitter)
   (use-package tree-sitter-langs)
@@ -127,7 +189,8 @@ These are some black and white themes
 
 *** Font
 #+begin_src emacs-lisp
-  (set-frame-font "Iosevka" nil t)
+  (set-frame-font "Iosevka-12" nil t)
+;;  (setq-default line-prefix "⬫")
 #+end_src
 
 *** Org mode

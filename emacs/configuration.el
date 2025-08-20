@@ -15,9 +15,7 @@
 
 (use-package spaceway-theme
   :ensure nil
-  :load-path "spaceway/"
-  :config'
-  (global-hl-line-mode t))
+  :load-path "spaceway/")
 
 (use-package almost-mono-themes)
 
@@ -35,17 +33,40 @@
   (minibuffer-prompt-properties
    '(read-only t cursor-intangible face minibuffer-prompt)))
 
+(use-package which-key
+  :init (which-key-mode 1)
+  :config
+  (setq which-key-side-window-location 'bottom
+	which-key-sort-order #'which-key-key-order-alpha
+	which-key-sort-uppercase-first nil
+	which-key-add-column-padding 1
+	which-key-max-display-columns nil
+	which-key-min-display-lines 6
+	which-key-side-window-slot -10
+	which-key-side-window-max-height 0.25
+	which-key-idle-delay 0.8
+	which-key-max-description-length 25
+	which-key-allow-imprecise-window-fit nil))
+
+(use-package consult)
+
+(use-package doom-modeline)
+(setq doom-modeline-height 40)
+(setq doom-modeline-buffer-modification-icon nil)
+(doom-modeline-mode)
+
+(setq inhibit-startup-screen t)
+
 (setq make-backup-files nil)
 
-(setq display-line-numbers 'relative)
 (menu-bar-mode 0)
 (tool-bar-mode 0)
 (scroll-bar-mode 0)
 
 (column-number-mode 1)
 (show-paren-mode 1)
-(global-display-line-numbers-mode 1)
 (setq display-line-numbers 'relative)
+(global-display-line-numbers-mode 1)
 
 (setq scroll-step 5
       scroll-conservatively 10)
@@ -56,13 +77,36 @@
 (global-set-key (kbd "C-c l") 'reload-config)
 
 (global-set-key (kbd "C-,") 'duplicate-line)
-(global-set-key (kbd "M-n") 'scroll-up)
-(global-set-key (kbd "M-p") 'scroll-down)
+
+(mouse-wheel-mode -1)
+
+(global-set-key (kbd "C-c c") 'compile)
 
 (add-hook 'minibuffer-setup-hook 'my-minibuffer-setup)
 (defun my-minibuffer-setup ()
   (set (make-local-variable 'face-remapping-alist)
        '((default :height 2.0))))
+
+(defun my-isearch-message (&optional c-q-hack ellipsis)
+  ;; Generate and print the message string.
+  (let ((cursor-in-echo-area ellipsis)
+        (m isearch-message)
+        (fail-pos (isearch-fail-pos t)))
+    ;; Highlight failed part
+    (when fail-pos
+      (setq m (copy-sequence m))
+      (add-text-properties fail-pos (length m) '(face isearch-fail) m)
+      ;; Highlight failed trailing whitespace
+      (when (string-match " +$" m)
+        (add-text-properties (match-beginning 0) (match-end 0)
+                             '(face trailing-whitespace) m)))
+    (setq m (concat
+             (isearch-message-prefix ellipsis isearch-nonincremental)
+             m
+             (isearch-message-suffix c-q-hack)))
+    (if c-q-hack m (let ((message-log-max nil)) (message "%s" (propertize m 'face  '(:inherit default :height 2.0)))))))
+
+(setq isearch-message-function #'my-isearch-message)
 
 (use-package tree-sitter)
 (use-package tree-sitter-langs)
@@ -73,7 +117,8 @@
 ;;  (set-frame-parameter nil 'alpha-background 80)
 (set-frame-parameter nil 'alpha-background 100)
 
-(set-frame-font "Iosevka" nil t)
+(set-frame-font "Iosevka-12" nil t)
+;;  (setq-default line-prefix "⬫")
 
 (setq org-hide-emphasis-markers t)
 
