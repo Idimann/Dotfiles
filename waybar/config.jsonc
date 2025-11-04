@@ -83,7 +83,7 @@
         "format": "{icon}  {capacity}% ",
         "format-charging": "  {capacity}%",
         "format-plugged": "  {capacity}%",
-        "format-alt": "{icon} {time}",
+        "format-alt": "{icon}  {time}",
         "format-icons": ["", "", "", "", ""]
     },
 
@@ -134,12 +134,15 @@
     },
 
     "bluetooth": {
-	    //"format": " {status}",
+	    "format": " {status}",
         "format-enabled": " {device_alias}",
-	    "format-disabled": " Disabled", // an empty format will hide the module
-	    "format-connected": " {num_connections}",
+	    "format-on": " On",
+	    "format-off": " Off",
+	    "format-disabled": " Disabled",
+	    "format-no-controller": " No Ctrl.",
+	    "format-connected": " {device_alias}",
 	    "tooltip-format": "{device_alias}",
-	    "tooltip-format-connected": " {device_enumerate}",
+	    "tooltip-format-connected": "{device_enumerate}",
 	    "tooltip-format-enumerate-connected": "{device_alias}"
     }
 }
